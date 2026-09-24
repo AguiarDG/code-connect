@@ -1,0 +1,18 @@
+{
+  "name": "code-connect",
+  "private": true,
+  "scripts": {
+    "web": "pnpm --filter web",
+    "web:dev": "pnpm --filter web dev",
+    "web:build": "pnpm --filter web build",
+    "web:lint": "pnpm --filter web lint",
+    "web:preview": "pnpm --filter web preview",
+    "api": "pnpm --filter api",
+    "api:dev": "pnpm --filter api start:dev",
+    "api:build": "pnpm --filter api build",
+    "api:start": "pnpm --filter api start",
+    "api:test": "pnpm --filter api test",
+    "api:lint": "pnpm --filter api lint"
+  },
+  "packageManager": "pnpm@12.6.0"
+}
