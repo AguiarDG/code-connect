@@ -48,4 +48,16 @@ describe('LoginForm', () => {
     expect(screen.getByText('Informe sua senha')).toBeInTheDocument()
     expect(onSubmit).not.toHaveBeenCalled()
   })
+
+  it('clears a field error once the user edits that field', async () => {
+    renderForm()
+
+    await userEvent.click(screen.getByRole('button', { name: 'Login' }))
+    await userEvent.type(screen.getByLabelText('Email ou usuário'), 'u')
+
+    expect(
+      screen.queryByText('Informe seu email ou usuário'),
+    ).not.toBeInTheDocument()
+    expect(screen.getByText('Informe sua senha')).toBeInTheDocument()
+  })
 })

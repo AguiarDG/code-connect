@@ -19,7 +19,7 @@ function LoginPage() {
       }
     >
       {/* TODO: call the API once authentication exists */}
-      <LoginForm onSubmit={(values) => console.info('login', values)} />
+      <LoginForm onSubmit={({ login }) => console.info('login', login)} />
       <SocialLogin
         onSelect={(provider) => console.info('social login', provider)}
       />

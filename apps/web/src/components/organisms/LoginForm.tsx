@@ -39,6 +39,11 @@ function LoginForm({ onSubmit }: LoginFormProps) {
     if (Object.keys(nextErrors).length === 0) onSubmit(values)
   }
 
+  function handleFieldChange(field: keyof LoginFormErrors, value: string) {
+    setValues({ ...values, [field]: value })
+    setErrors({ ...errors, [field]: undefined })
+  }
+
   return (
     <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-4">
       <FormField
@@ -48,9 +53,7 @@ function LoginForm({ onSubmit }: LoginFormProps) {
         placeholder="usuario123"
         value={values.login}
         error={errors.login}
-        onChange={(event) =>
-          setValues({ ...values, login: event.target.value })
-        }
+        onChange={(event) => handleFieldChange('login', event.target.value)}
       />
       <div className="flex flex-col gap-2">
         <FormField
@@ -62,7 +65,7 @@ function LoginForm({ onSubmit }: LoginFormProps) {
           value={values.password}
           error={errors.password}
           onChange={(event) =>
-            setValues({ ...values, password: event.target.value })
+            handleFieldChange('password', event.target.value)
           }
         />
         <div className="flex items-center justify-between">
